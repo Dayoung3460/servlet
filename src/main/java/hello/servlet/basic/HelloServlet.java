@@ -8,6 +8,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 
+// /hello로 요청이 들어오면 helloServlet 싱글톤 객체가 생성됨(서블릿 컨테이너가 해줌)
 @WebServlet(name = "helloServlet", urlPatterns = "/hello")
 public class HelloServlet extends HttpServlet {
   @Override
