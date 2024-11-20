@@ -15,14 +15,13 @@ public class MemberRepository {
   private static Map<Long, Member> store = new HashMap<>();
   private static long sequence = 0L;
 
-  // 싱글톤
   private static final MemberRepository instance = new MemberRepository();
 
-  private MemberRepository() {
-
-  }
   public static MemberRepository getInstance() {
     return instance;
+  }
+
+  private MemberRepository() {
   }
 
   public Member save(Member member) {
@@ -42,6 +41,5 @@ public class MemberRepository {
   public void clearStore() {
     store.clear();
   }
-
 
 }
