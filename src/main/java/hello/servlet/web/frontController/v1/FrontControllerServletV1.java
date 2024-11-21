@@ -1,8 +1,8 @@
 package hello.servlet.web.frontController.v1;
 
-import hello.servlet.web.frontController.v1.Controller.MemberFormControllerV1;
-import hello.servlet.web.frontController.v1.Controller.MemberListControllerV1;
-import hello.servlet.web.frontController.v1.Controller.MemberSaveControllerV1;
+import hello.servlet.web.frontController.v1.controller.MemberFormControllerV1;
+import hello.servlet.web.frontController.v1.controller.MemberListControllerV1;
+import hello.servlet.web.frontController.v1.controller.MemberSaveControllerV1;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -18,21 +18,21 @@ import java.util.Map;
 public class FrontControllerServletV1 extends HttpServlet {
   private Map<String, ControllerV1> controllerMap = new HashMap<>();
 
-  // /front-controller/v1/memBers/new-form 에서
+  // /front-controller/v1/members/new-form 에서
   // form action='save'
   // 상대경로로 되어있음
-  // /front-controller/v1/memBers/save
+  // /front-controller/v1/members/save
   // 이 경로로 오게됨
   public FrontControllerServletV1() {
-    controllerMap.put("/front-controller/v1/memBers/new-form", new MemberFormControllerV1());
-    controllerMap.put("/front-controller/v1/memBers/save", new MemberSaveControllerV1());
-    controllerMap.put("/front-controller/v1/memBers", new MemberListControllerV1());
+    controllerMap.put("/front-controller/v1/members/new-form", new MemberFormControllerV1());
+    controllerMap.put("/front-controller/v1/members/save", new MemberSaveControllerV1());
+    controllerMap.put("/front-controller/v1/members", new MemberListControllerV1());
   }
 
   @Override
   protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-    // ex) /front-controller/v1/memBers/new-form
+    // ex) /front-controller/v1/members/new-form
     String requestURI = request.getRequestURI();
     ControllerV1 controller = controllerMap.get(requestURI);
     if(controller == null) {
