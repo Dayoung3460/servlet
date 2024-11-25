@@ -19,6 +19,11 @@ public class MemberSaveControllerV3 implements ControllerV3 {
     memberRepository.save(member);
 
     ModelView mv = new ModelView("save-result");
+
+//    Map<String, Object> map = new HashMap<>();
+//    map.put("member", member);
+//    mv.setModel(map);
+
     mv.getModel().put("member", member);
     return mv;
   }
