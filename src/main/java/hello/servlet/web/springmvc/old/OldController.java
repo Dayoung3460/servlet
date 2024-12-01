@@ -16,6 +16,14 @@ public class OldController implements Controller {
   @Override
   public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response) throws Exception {
     System.out.println("oldController");
-    return null;
+    // spring boot는 InternalResourceViewResolver라는 뷰 리졸버를 자동으로 등록
+    // 이 때 application.properties 에 등록한
+    // spring.mvc.view.prefix=/WEB-INF/views/
+    //spring.mvc.view.suffix=.jsp
+    // 설정 정보를 사용해서 등록함
+
+    // InternalResourceViewResolver: jsp 처리할 수 있는 뷰 반환
+    // 타임리프 뷰 반환하는 뷰 리졸버는 또 따로 있고
+    return new ModelAndView("new-form");
   }
 }
